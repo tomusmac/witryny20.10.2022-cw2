@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Usługi informatyczne</title>
+      <link rel="stylesheet" href="styl.css" />
+      <link rel="icon" href="logo.png" type="image/x-icon" />
+   </head>
+   <body>
+    <script>
+      function Resetuj() {
+      document.getElementById("imie").value = "";
+      document.getElementById("nazwisko").value = "";
+      document.getElementById("mail").value = "";
+      document.getElementById("usluga").value = "";
+      document.getElementById("check").checked = false;
+    }
+    function Wyslij() {
+      if(document.getElementById("check").checked == false) {
+        document.getElementById("tresc").style.color = "red";
+        document.getElementById("tresc").innerHTML = "Musisz zapoznać się z regulaminem";
+      } else {
+        var imie = document.getElementById("imie").value;
+        var nazwisko = document.getElementById("nazwisko").value;
+        var mail = document.getElementById("mail").value;
+        var usluga = document.getElementById("usluga").value;
+        var imie = imie.charAt(0).toUpperCase() + imie.slice(1);
+        var nazwisko = nazwisko.charAt(0).toUpperCase() + nazwisko.slice(1);
+        document.getElementById("tresc").style.color = "";
+        document.getElementById("tresc").innerHTML = imie + " " + nazwisko + "<br>Treść Twojej sprawy: " + usluga + "<br>Na podany e-mail zostanie wysłana oferta.";
+      }
+    }
+  </script>      
+      <div class="container">
+         <div class="logo" id="logo">
+            <img src="logo.png" alt="logo firmy" />
+         </div>
+         <div class="menu">
+            <a href="index.html">O nas</a>
+            <a href="usługi.html">Usługi</a>
+            <a href="kontakt.html">Kontakt</a>
+         </div>
+         <div class="baner">
+            <img src="animacja.gif" />
+         </div>
+         <div class="glowny">
+            <hr />
+            <h2>Kontakt</h2>
+            <table>
+               <tbody>
+                  <tr>
+                     <td>Imie:</td>
+                     <td><input type="text" id="imie" name="fname" /></td>
+                  </tr>
+                  <tr>
+                     <td>Nazwisko:</td>
+                     <td><input type="text" id="nazwisko" name="fname" /></td>
+                  </tr>
+                  <tr>
+                     <td>E-mail:</td>
+                     <td><input type="text" id="mail" name="fname" /></td>
+                  </tr>
+                  <tr>
+                     <td>Usługa:</td>
+                     <td><input type="text" id="usluga" name="fname" /></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td>
+                        Zapoznałem/am się z regulaminem
+                        <input type="checkbox" id="check" name="fname" />
+                     </td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td>
+                        <input id="resetuj" type="submit" onclick="Resetuj()" name="resetuj" value="Resetuj"/>
+                        <input id="Wyślij" type="submit"  onclick="Wyslij()" name="Wyślij" value="Wyślij" />
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+            <p id="tresc"></p>
+            <hr/>
+         </div>
+         <div class="stopka">
+            <p>Autor strony: <b>12341231234</b></p>
+         </div>
+      </div>
+   </body>
+</html>
